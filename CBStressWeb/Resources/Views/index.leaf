@@ -20,8 +20,8 @@
             <img src="/cb-logo.png" class="bond-logo" alt="CBStress logo">
         </div>
 
-        <div class="bond-title" style="font-size:80%;">Chargeblast® CBStress</div>
-        
+        <div class="bond-title">Chargeblast® CBStress</div>
+
         <div id="bondSubtitle" class="bond-subtitle">
             Launch Chargeblast's penetration security scanner
         </div>
