@@ -43,7 +43,7 @@
 <!-- MAIN APP -->
 <main id="appMain" class="container app-hidden">
     <div class="hero-card">
-        <h1>Chargeblast® CBStress Penetration Test Version 3-20-26</h1>
+        <h1>Chargeblast® CBStress Penetration Version 3-20-26</h1>
         <p class="hero-subtitle">
             Lightweight browser-based endpoint review and response header analysis.
         </p>
