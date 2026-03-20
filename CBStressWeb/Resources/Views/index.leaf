@@ -23,7 +23,7 @@
         <div class="bond-title">Chargeblast® CBStress</div>
 
         <div id="bondSubtitle" class="bond-subtitle">
-            Launch the CBStress security scanner
+            Launch the Chargeblast® penetration security scanner
         </div>
 
         <button id="openCBStressBtn" class="bond-button" type="button">
