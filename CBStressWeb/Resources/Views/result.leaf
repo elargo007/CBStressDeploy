@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>CBStress Results</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <main class="container">
+        <h1>CBStress Results</h1>
+
+        <div class="actions">
+            <a href="/">New Scan</a>
+            <a href="/report.html?url=#(url)">Download HTML</a>
+            <a href="/report?url=#(url)">JSON Report</a>
+        </div>
+
+        <section class="card">
+            <h2>Summary</h2>
+            <p><strong>URL:</strong> #(url)</p>
+            <p><strong>Status Code:</strong> #(statusCode)</p>
+            <p><strong>Response Time:</strong> #(responseTime)</p>
+            <p><strong>Findings:</strong> #(findingCount)</p>
+            <p><strong>Headers:</strong> #(headerCount)</p>
+        </section>
+
+        <section class="card">
+            <h2>Findings</h2>
+            #if(hasFindings):
+                <ul>
+                #for(finding in findings):
+                    <li class="finding">
+                        <strong>#(finding.type)</strong> — #(finding.description)
+                    </li>
+                #endfor
+                </ul>
+            #else:
+                <p>No findings detected.</p>
+            #endif
+        </section>
+
+        <section class="card">
+            <h2>Response Headers</h2>
+            #if(hasHeaders):
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Header</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    #for(header in headers):
+                        <tr>
+                            <td>#(header.key)</td>
+                            <td>#(header.value)</td>
+                        </tr>
+                    #endfor
+                    </tbody>
+                </table>
+            #else:
+                <p>No response headers captured.</p>
+            #endif
+        </section>
+    </main>
+</body>
+</html>

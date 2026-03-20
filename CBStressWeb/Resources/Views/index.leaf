@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CBStress</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/styles.css">
+</head>
+
+<body class="bond-body">
+
+<!-- Bond splash -->
+<div id="bondSplash" class="bond-splash">
+    <div class="bond-overlay"></div>
+
+    <div class="bond-center">
+        <div class="bond-ring"></div>
+
+        <div class="bond-logo-wrap">
+            <img src="/cb-logo.png" class="bond-logo" alt="CBStress logo">
+        </div>
+
+        <div class="bond-title">CBStress Web</div>
+
+        <div id="bondSubtitle" class="bond-subtitle">
+            Launch the CBStress security scanner
+        </div>
+
+        <button id="openCBStressBtn" class="bond-button" type="button">
+            Open CBStress
+        </button>
+
+        <div id="bondNote" class="bond-note">
+            Click to begin and play intro audio
+        </div>
+    </div>
+
+    <audio id="goldfingerAudio" preload="auto">
+        <source src="/Goldfinger.mp3" type="audio/mpeg">
+    </audio>
+</div>
+
+<!-- MAIN APP -->
+<main id="appMain" class="container app-hidden">
+    <div class="hero-card">
+        <h1>CBStress</h1>
+        <p class="hero-subtitle">
+            Lightweight browser-based endpoint review and response header analysis.
+        </p>
+    </div>
+
+    <section class="card">
+        <h2>New Scan</h2>
+
+        <form action="/scan-ui" method="get" class="scan-form">
+            <label for="url"><strong>Target URL</strong></label>
+
+            <input
+                id="url"
+                name="url"
+                type="text"
+                placeholder="example.com or https://example.com"
+                autocomplete="off"
+                required
+            >
+
+            <div class="actions">
+                <button type="submit">Run Scan</button>
+            </div>
+        </form>
+    </section>
+</main>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const splash = document.getElementById("bondSplash");
+    const appMain = document.getElementById("appMain");
+    const audio = document.getElementById("goldfingerAudio");
+    const openBtn = document.getElementById("openCBStressBtn");
+    const subtitle = document.getElementById("bondSubtitle");
+    const note = document.getElementById("bondNote");
+
+    let didLaunch = false;
+
+    function revealScanner() {
+        if (didLaunch) return;
+        didLaunch = true;
+
+        splash.classList.add("bond-splash-exit");
+
+        setTimeout(() => {
+            splash.style.display = "none";
+            appMain.classList.remove("app-hidden");
+            appMain.classList.add("app-visible");
+
+            const input = document.getElementById("url");
+            if (input) input.focus();
+        }, 1200);
+    }
+
+    function startExperience() {
+        if (!audio) {
+            revealScanner();
+            return;
+        }
+
+        openBtn.disabled = true;
+        openBtn.textContent = "Starting...";
+        subtitle.textContent = "Security Scan Initializing";
+        note.textContent = "Playing Goldfinger intro...";
+
+        audio.volume = 0.6;
+
+        const playPromise = audio.play();
+
+        if (playPromise && typeof playPromise.then === "function") {
+            playPromise.then(() => {
+                openBtn.style.display = "none";
+                note.textContent = "Intro playing...";
+            }).catch((err) => {
+                console.log("Audio play failed:", err);
+                note.textContent = "Audio unavailable. Opening scanner...";
+                setTimeout(revealScanner, 900);
+            });
+        } else {
+            openBtn.style.display = "none";
+            note.textContent = "Intro playing...";
+        }
+    }
+
+    if (audio) {
+        audio.addEventListener("ended", revealScanner);
+
+        audio.addEventListener("error", () => {
+            note.textContent = "Audio file unavailable. Opening scanner...";
+            setTimeout(revealScanner, 900);
+        });
+    }
+
+    openBtn.addEventListener("click", startExperience);
+});
+</script>
+
+</body>
+</html>
