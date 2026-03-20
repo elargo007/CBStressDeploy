@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>CBStress</title>
+<title>Chargeblast® CBStress Version 3-20-26</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/styles.css">
 </head>
@@ -20,14 +20,14 @@
             <img src="/cb-logo.png" class="bond-logo" alt="CBStress logo">
         </div>
 
-        <div class="bond-title">CBStress Web</div>
+        <div class="bond-title">CBStress® Version 3-20-26</div>
 
         <div id="bondSubtitle" class="bond-subtitle">
             Launch the CBStress security scanner
         </div>
 
         <button id="openCBStressBtn" class="bond-button" type="button">
-            Open CBStress
+            Open CBStress® Version 3-20-26
         </button>
 
         <div id="bondNote" class="bond-note">
@@ -43,7 +43,7 @@
 <!-- MAIN APP -->
 <main id="appMain" class="container app-hidden">
     <div class="hero-card">
-        <h1>CBStress</h1>
+        <h1>CBStress® Version 3-20-26</h1>
         <p class="hero-subtitle">
             Lightweight browser-based endpoint review and response header analysis.
         </p>
