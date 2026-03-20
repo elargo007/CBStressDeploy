@@ -20,7 +20,7 @@
             <img src="/cb-logo.png" class="bond-logo" alt="CBStress logo">
         </div>
 
-        <div class="bond-title">Chargeblast® CBStress Version 3-20-26</div>
+        <div class="bond-title">Chargeblast® CBStress</div>
 
         <div id="bondSubtitle" class="bond-subtitle">
             Launch the CBStress security scanner
@@ -43,7 +43,7 @@
 <!-- MAIN APP -->
 <main id="appMain" class="container app-hidden">
     <div class="hero-card">
-        <h1>CBStress® Version 3-20-26</h1>
+        <h1>Chargeblast® Penetration Test Version 3-20-26</h1>
         <p class="hero-subtitle">
             Lightweight browser-based endpoint review and response header analysis.
         </p>
