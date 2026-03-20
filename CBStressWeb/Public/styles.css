@@ -260,7 +260,7 @@ button:active {
     color: var(--muted);
     font-size: 1rem;
     letter-spacing: 0.14em;
-    text-transform: uppercase;
+    text-transform: none;
     margin-bottom: 22px;
 }
 
@@ -347,10 +347,5 @@ button:active {
 
     .bond-title {
         font-size: 2.3rem;
-    }
-
-    .bond-subtitle {
-        font-size: 0.82rem;
-        letter-spacing: 0.10em;
     }
 }
