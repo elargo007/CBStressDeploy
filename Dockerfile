@@ -6,17 +6,7 @@ COPY . .
 WORKDIR /app/CBStressWeb
 RUN swift build -c release
 
-FROM ubuntu:22.04
-
-RUN apt-get update && apt-get install -y \
-    libatomic1 \
-    libcurl4 \
-    libxml2 \
-    libsqlite3-0 \
-    libicu70 \
-    tzdata \
-    ca-certificates \
-    && rm -rf /var/lib/apt/lists/*
+FROM swift:6.2-jammy-slim
 
 WORKDIR /app
 
